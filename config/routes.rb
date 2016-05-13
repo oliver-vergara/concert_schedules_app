@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  get '/concerts/:id', to: 'concerts#show'
-  get '/concerts', to: 'concerts#index'
-  post '/concerts', to: 'concerts#create'
-  patch '/concerts/:id', to: 'concerts#update'
-  delete '/concerts/:id', to: 'concerts#destroy'
+  namespace :api do
+    namespace :v1 do
+      get '/concerts/:id', to: 'concerts#show'
+      get '/concerts', to: 'concerts#index'
+      post '/concerts', to: 'concerts#create'
+      patch '/concerts/:id', to: 'concerts#update'
+      delete '/concerts/:id', to: 'concerts#destroy'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

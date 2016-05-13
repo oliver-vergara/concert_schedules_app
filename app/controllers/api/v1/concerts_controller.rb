@@ -1,4 +1,4 @@
-class ConcertsController < ApplicationController
+class Api::V1::ConcertsController < ApplicationController
 
     def index
       @concerts = Concert.all
@@ -30,5 +30,5 @@ class ConcertsController < ApplicationController
       @concert.destroy
       render json: @concert
 
-    end 
+    end
 end
