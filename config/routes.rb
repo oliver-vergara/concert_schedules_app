@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/", to: "concerts#index"
+  
   namespace :api do
     namespace :v1 do
       get '/concerts/:id', to: 'concerts#show'

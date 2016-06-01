@@ -10,8 +10,11 @@ class Api::V1::ConcertsController < ApplicationController
 
     def create
       @concert = Concert.new(artist: params[:artist], genre: params[:genre], concert_date: params[:concert_date], city: params[:city], state: params[:state])
-      @concert.save
-      render :show
+      if @concert.save
+        render :show
+      else
+        render json: {errors: @concert.errors.full_messages}, status: 422
+      end
     end
 
 

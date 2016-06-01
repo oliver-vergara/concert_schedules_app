@@ -1,0 +1,47 @@
+<div ng-app="app">
+  <div ng-controller="concertCtrl" ng-init="setup()">
+  <ul>
+    <li ng-repeat="error in errors">{{ error }}</li>
+  </ul>
+  <p>
+    Artist<input ng-model="artist">
+    Genre<input ng-model="genre">
+    Schedule<input ng-model="schedule">
+    City<input ng-model="city">
+    State<input ng-model="state">
+    <button ng-click="addConcert(artist, genre, schedule, city, state)">Add Concert</button>
+  </p>
+  <table>
+    <tr>
+      <th ng-click="toggleOrder('artist')">Artist</th>
+      <th ng-click="toggleOrder('genre')">Genre</th>
+      <th ng-click="toggleOrder('schedule')">Schedule</th>
+      <th ng-click="toggleOrder('city')">City</th>
+      <th ng-click="toggleOrder('state')">State</th>
+      <th></th>
+    </tr>
+    <datalist id="artists">
+      <option ng-repeat="concert in concerts">{{concert.artist}}</option>
+    </datalist>
+    <label>Filter by Artist:</label>
+    <input ng-model="artistFilter" list="artists">
+    <label>Filter by State:</label>
+    <input ng-model="stateFilter">
+    <div>
+    </div>
+
+    <tr ng-repeat="concert in concerts | filter: {artist: artistFilter, state: stateFilter} | orderBy: orderAttribute:descending">
+      <td>{{ concert.artist}}</td>
+      <td>{{ concert.genre}}</td>
+      <td>{{ concert.schedule}}</td>
+      <td>{{ concert.city}}</td>
+      <td>{{ concert.state}}</td>
+      <td><button href="#" ng-click="deleteConcert(concert)">Delete Concert</button></td>
+
+    </tr>
+  </table>
+
+
+
+  </div>
+</div>
