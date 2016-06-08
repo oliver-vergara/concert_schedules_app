@@ -1,18 +1,4 @@
-<div ng-app="app">
-  <div ng-controller="concertCtrl" ng-init="setup()">
-  <ul>
-    <li ng-repeat="error in errors">{{ error }}</li>
-  </ul>
-  <p>
-    Artist<input ng-model="artist">
-    Genre<input ng-model="genre">
-    Schedule<input ng-model="schedule">
-    City<input ng-model="city">
-    State<input ng-model="state">
-    <button ng-click="addConcert(artist, genre, schedule, city, state)">Add Concert</button>
-  </p>
-  <concert-app></concert-app>
-  <!-- <table>
+<table>
     <tr>
       <th ng-click="toggleOrder('artist')">Artist</th>
       <th ng-click="toggleOrder('genre')">Genre</th>
@@ -40,9 +26,4 @@
       <td><button href="#" ng-click="deleteConcert(concert)">Delete Concert</button></td>
 
     </tr>
-  </table> -->
-
-
-
-  </div>
-</div>
+  </table>
